@@ -1,0 +1,11 @@
+{% block content %}
+
+    <p style="display: flex; justify-content: center; margin-bottom: 50px; font-size: 2em;">Enter API Key In The Input Field</p>
+    <label style="display: flex; justify-content: center; margin-bottom: 20px;">Enter API</label>
+    <form class="form" method="POST" enctype="multipart/form-data" action="">
+        {% csrf_token %}
+        <input required type="text" name="API_KEY" style="display: block; margin: 0 auto;  width: 50%;">
+        <input type="submit" value="Submit" style="display: block; margin: 10 auto;" />
+    </form>
+
+{% endblock content %}
