@@ -1,0 +1,23 @@
+{% load static %}
+{% block content %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+  </head>
+    <div class="mainTitle">Display Temperature From Arduino Using API Keys</div>
+    <hr>
+    <div class="temperature" >
+      <iframe width="450" height="260" style="border: 1px solid #cccccc;" src={{ch_f_if.iframe}}></iframe>
+
+        <div class="display_txt">
+            The Temeprature is {{temperature}}
+        </div>
+    </div>
+    <div class="footer">
+        <hr>
+        <a class="home" href="{% url 'main-page' %}" > Home </a>
+        <a class="back" href="{% url 'read_data' %}">Go Back</a>
+    </div>
+{% endblock content %}

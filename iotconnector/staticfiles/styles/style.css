@@ -1,0 +1,12 @@
+body {
+    background-color: #e0ebeb;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* background-color: rebeccapurple; */
+}
+
+.list .item{
+    text-decoration: none !important;
+}

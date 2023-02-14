@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-2f^nj6u-1oer_-48pc@#*(8(^r#d5!f#ki1g2lgqoktp)q7#rm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-env.eba-xsfhgxnr.us-west-2.elasticbeanstalk.com', '*']
+ALLOWED_HOSTS = ['*', 'django-env.eba-ptppm7wp.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -56,7 +57,9 @@ ROOT_URLCONF = 'iotconnector.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,6 +121,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = '/images/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static') # we tell django to look in this folder for static files
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images') # when user uploads a file... this is where we tell Django tosave ht file
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

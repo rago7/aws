@@ -1,0 +1,17 @@
+{% load static %}
+{% block content %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+  </head>
+  <body>
+    <div class="mainTitle">Read and Write Data from Remote MC</div>
+    <hr>
+    <ul class="list">
+        <a href="{% url 'read_data' %}" class="item"><li class="item">Read Data From MC</li></a>
+        <a href="{% url 'write_data' %}" class="item"><li class="item">Send Data To MC</li></a>
+    </ul>
+  </body>
+  {% endblock content %}
