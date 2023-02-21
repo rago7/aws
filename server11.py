@@ -17,7 +17,7 @@ def thread_tsk():
 
     Handler = http.server.SimpleHTTPRequestHandler
 
-    httpd = MyTCPServer(("192.168.1.103", PORT), Handler)
+    httpd = MyTCPServer(("", PORT), Handler)
 
     httpd.socket.listen(5)
     (clientsocket, address) = httpd.socket.accept()
@@ -27,8 +27,5 @@ def thread_tsk():
     # httpd.serve_forever()
 t = Thread(daemon=True,target=thread_tsk)
 t.start()
-# sleep(0.5)
-# print(t.is_alive())
-t.run()
-# t.join()
+t.join()
 print('after math')

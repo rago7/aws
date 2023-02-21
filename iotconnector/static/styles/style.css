@@ -7,6 +7,13 @@ p {
     /* background-color: rebeccapurple; */
 }
 
+canvas#myChart{
+  width: 90% !important;
+  height: 80% !important;
+  display: block;
+  box-sizing: border-box;
+}
+
 .list .item{
     text-decoration: none !important;
     margin: 0 0 15 0;

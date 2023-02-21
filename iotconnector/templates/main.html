@@ -15,5 +15,38 @@
         <a href="#" class="item"><li class="item">Arduino Security Camera with Motion detection</li><img src="https://img.icons8.com/external-filled-color-icons-papa-vector/78/null/external-Motion-detection-pixel-perfect-RGB-color-icon-iot-filled-color-icons-papa-vector.png"/></a>
         <a href="#" class="item"><li class="item">GPS Location Project with Temboo, Twilio and Google Maps</li><img src="https://img.icons8.com/external-flatarticons-blue-flatarticons/65/null/external-GPS-Location-Map-3d-pring-and-communication-flatarticons-blue-flatarticons.png"/></a>
     </ul>
+<head>
+<title>Temperature Stats</title>
+<link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+</head>
+<body>
+  <canvas id="myChart"></canvas>
+</body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+  </script>
+  <script>
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels : [{% for item in labels %}"{{ item }}",{% endfor %}],
+          datasets: [{
+            fill : false,
+            label: "Temperature",
+            data : [{% for item in values %}{{ item }},{% endfor %}],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+            y: [{ticks: {min: 6}}],
+          }
+      }
+  });
+  </script>
 
 {% endblock content %}

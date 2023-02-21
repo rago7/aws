@@ -5,6 +5,7 @@ import socket
 import http.server
 import socketserver
 from . import server
+from threading import *
 
 
 def validate(key):
@@ -27,31 +28,6 @@ def validate(key):
     return {'error' : '', 'value' : 1, 'channel' : n, 'field' : kk[1][0], 'iframe' : chrt}
 
 def data(request):
-    # kk = server.readTemp()
-    # Delete Below code
-    PORT = 8000
-    Temp = 0
-    class MyTCPServer(socketserver.TCPServer):
-        def server_bind(self):
-            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            print(self.server_address)
-            self.socket.bind(self.server_address)
-
-    Handler = http.server.ThreadingHTTPServer
-
-    httpd = MyTCPServer(("", PORT), Handler)
-
-    # os.chdir("/My/Webpages/Live/here.html")
-    k = httpd.socket.listen(5)
-    print(k)
-    (clientsocket, address) = httpd.socket.accept()
-    print(12)
-    Temp = clientsocket.recv(1024)
-    clientsocket.send(Temp)
-    print(Temp)
-    # httpd.serve_forever()
-    # delete above Code
-
     if request.method == 'GET':
         context = {}
         return render(request, 'tempReader/urlPage.html', context)

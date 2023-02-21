@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import mainPage
 from tempReader.views import data
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mainPage, name="main-page"),
     path('temp/', include('tempReader.urls')),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
